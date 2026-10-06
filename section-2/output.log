@@ -1,0 +1,153 @@
+[11:11:55] ===== START =====
+[11:11:55] Creating employees.txt
+[11:11:55] Creating salaries.txt
+[11:11:55] 1) nl - number the lines of employees.txt
+       
+     1	101,Alice,Engineering
+       
+     2	102,Bob,Marketing
+       
+     3	103,Charlie,Engineering
+       
+     4	104,Diana,HR
+       
+     5	105,Ethan,Marketing
+       
+[11:11:55] 2) wc - count lines, words, characters
+ 11   5 103 employees.txt
+[11:11:55] 3) tr - convert lowercase to uppercase
+
+101,ALICE,ENGINEERING
+
+102,BOB,MARKETING
+
+103,CHARLIE,ENGINEERING
+
+104,DIANA,HR
+
+105,ETHAN,MARKETING
+
+[11:11:55] 4) tr - replace commas with tabs
+
+101	Alice	Engineering
+
+102	Bob	Marketing
+
+103	Charlie	Engineering
+
+104	Diana	HR
+
+105	Ethan	Marketing
+
+[11:11:55] 5) paste - merge side by side with colon
+:
+101,Alice,Engineering:101,5000
+:
+102,Bob,Marketing:102,4500
+:
+103,Charlie,Engineering:103,6000
+:
+104,Diana,HR:104,5200
+:
+105,Ethan,Marketing:105,4800
+:
+[11:11:55] 6) join - combine on employee ID
+
+101,Alice,Engineering,5000
+
+102,Bob,Marketing,4500
+
+103,Charlie,Engineering,6000
+
+104,Diana,HR,5200
+
+105,Ethan,Marketing,4800
+
+[11:11:55] 7) xargs - create file1.txt to file5.txt
+file1.txt
+file2.txt
+file3.txt
+file4.txt
+file5.txt
+[11:11:55] 8) xargs + grep - search Engineering in .txt files
+employees.txt:101,Alice,Engineering
+employees.txt:103,Charlie,Engineering
+[11:11:55] ===== END =====
+
+======================================
+  FINAL OUTPUT (from output.log)
+======================================
+[11:11:55] ===== START =====
+[11:11:55] Creating employees.txt
+[11:11:55] Creating salaries.txt
+[11:11:55] 1) nl - number the lines of employees.txt
+       
+     1	101,Alice,Engineering
+       
+     2	102,Bob,Marketing
+       
+     3	103,Charlie,Engineering
+       
+     4	104,Diana,HR
+       
+     5	105,Ethan,Marketing
+       
+[11:11:55] 2) wc - count lines, words, characters
+ 11   5 103 employees.txt
+[11:11:55] 3) tr - convert lowercase to uppercase
+
+101,ALICE,ENGINEERING
+
+102,BOB,MARKETING
+
+103,CHARLIE,ENGINEERING
+
+104,DIANA,HR
+
+105,ETHAN,MARKETING
+
+[11:11:55] 4) tr - replace commas with tabs
+
+101	Alice	Engineering
+
+102	Bob	Marketing
+
+103	Charlie	Engineering
+
+104	Diana	HR
+
+105	Ethan	Marketing
+
+[11:11:55] 5) paste - merge side by side with colon
+:
+101,Alice,Engineering:101,5000
+:
+102,Bob,Marketing:102,4500
+:
+103,Charlie,Engineering:103,6000
+:
+104,Diana,HR:104,5200
+:
+105,Ethan,Marketing:105,4800
+:
+[11:11:55] 6) join - combine on employee ID
+
+101,Alice,Engineering,5000
+
+102,Bob,Marketing,4500
+
+103,Charlie,Engineering,6000
+
+104,Diana,HR,5200
+
+105,Ethan,Marketing,4800
+
+[11:11:55] 7) xargs - create file1.txt to file5.txt
+file1.txt
+file2.txt
+file3.txt
+file4.txt
+file5.txt
+[11:11:55] 8) xargs + grep - search Engineering in .txt files
+employees.txt:101,Alice,Engineering
+employees.txt:103,Charlie,Engineering
