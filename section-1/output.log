@@ -1,0 +1,74 @@
+[10:38:51] ===== START =====
+[10:38:51] 1) Create group developers
+[10:38:51] 2) Create user alice
+useradd: user 'alice' already exists
+[10:38:51] 3) Set password for alice
+[10:38:51] 4) Create user bob without home
+[10:38:51] 5) Add alice to developers
+[10:38:51] 6) Add bob to sudo
+bob : bob sudo
+[10:38:51] 7) Rename developers to devteam
+[10:38:51] 8) Set alice account to expire on 2030-12-31
+Last password change					: Oct 06, 2026
+Password expires					: never
+Password inactive					: never
+Account expires						: Dec 31, 2030
+Minimum number of days between password change		: 0
+Maximum number of days between password change		: 99999
+Number of days of warning before password expires	: 7
+[10:38:51] 9) Force alice to change password on next login
+[10:38:51] 10) Lock and unlock bob
+bob L 2026-10-06 0 99999 7 -1
+usermod: unlocking the user's password would result in a passwordless account.
+You should set a password with usermod -p to unlock this user's password.
+bob L 2026-10-06 0 99999 7 -1
+[10:38:51] 11) Delete bob
+[10:38:51] 12) Delete group devteam
+[10:38:51] 13) Difference between userdel and userdel -r:
+userdel     -> removes user only
+userdel -r  -> removes user + home + mail spool
+[10:38:51] 14) Configure sudoers for alice
+alice ALL=(ALL) NOPASSWD: /bin/systemctl restart apache2
+visudo is preferred because it checks syntax and locks the file.
+[10:38:51] ===== END =====
+
+======================================
+  FINAL OUTPUT (from output.log)
+======================================
+[10:38:51] ===== START =====
+[10:38:51] 1) Create group developers
+[10:38:51] 2) Create user alice
+useradd: user 'alice' already exists
+[10:38:51] 3) Set password for alice
+[10:38:51] 4) Create user bob without home
+[10:38:51] 5) Add alice to developers
+[10:38:51] 6) Add bob to sudo
+bob : bob sudo
+[10:38:51] 7) Rename developers to devteam
+[10:38:51] 8) Set alice account to expire on 2030-12-31
+Last password change					: Oct 06, 2026
+Password expires					: never
+Password inactive					: never
+Account expires						: Dec 31, 2030
+Minimum number of days between password change		: 0
+Maximum number of days between password change		: 99999
+Number of days of warning before password expires	: 7
+[10:38:51] 9) Force alice to change password on next login
+[10:38:51] 10) Lock and unlock bob
+bob L 2026-10-06 0 99999 7 -1
+usermod: unlocking the user's password would result in a passwordless account.
+You should set a password with usermod -p to unlock this user's password.
+bob L 2026-10-06 0 99999 7 -1
+[10:38:51] 11) Delete bob
+[10:38:51] 12) Delete group devteam
+[10:38:51] 13) Difference between userdel and userdel -r:
+userdel     -> removes user only
+userdel -r  -> removes user + home + mail spool
+[10:38:51] 14) Configure sudoers for alice
+alice ALL=(ALL) NOPASSWD: /bin/systemctl restart apache2
+visudo is preferred because it checks syntax and locks the file.
+[10:38:51] ===== END =====
+
+======================================
+  FINAL OUTPUT (from output.log)
+======================================
