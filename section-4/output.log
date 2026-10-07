@@ -1,0 +1,99 @@
+[03:24:19] ===== START =====
+[03:24:19] Detected interface: ens33
+[03:24:19] Detected gateway: 192.168.76.2
+[03:24:19] 1) Show IP addresses (ip a and ifconfig)
+--- ip a ---
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host noprefixroute 
+       valid_lft forever preferred_lft forever
+2: ens33: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    link/ether 00:0c:29:37:a2:52 brd ff:ff:ff:ff:ff:ff
+    altname enp2s1
+    altname enx000c2937a252
+    inet 192.168.76.131/24 brd 192.168.76.255 scope global dynamic noprefixroute ens33
+       valid_lft 1356sec preferred_lft 1131sec
+    inet6 fe80::a248:b2c1:5f21:b24c/64 scope link 
+       valid_lft forever preferred_lft forever
+3: docker0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN group default 
+    link/ether 4e:8d:ad:a1:90:ee brd ff:ff:ff:ff:ff:ff
+    inet 172.17.0.1/16 brd 172.17.255.255 scope global docker0
+       valid_lft forever preferred_lft forever
+--- ifconfig ---
+docker0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+        inet 172.17.0.1  netmask 255.255.0.0  broadcast 172.17.255.255
+        ether 4e:8d:ad:a1:90:ee  txqueuelen 0  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 2 overruns 0  carrier 0  collisions 0
+
+ens33: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.76.131  netmask 255.255.255.0  broadcast 192.168.76.255
+        inet6 fe80::a248:b2c1:5f21:b24c  prefixlen 64  scopeid 0x20<link>
+        ether 00:0c:29:37:a2:52  txqueuelen 1000  (Ethernet)
+        RX packets 6391  bytes 8719165 (8.3 MiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 1803  bytes 134536 (131.3 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 210  bytes 9016 (8.8 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 210  bytes 9016 (8.8 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+Note: ifconfig needs the 'net-tools' package.
+[03:24:19] 2) Ping 8.8.8.8 with exactly 5 packets
+PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
+64 bytes from 8.8.8.8: icmp_seq=1 ttl=128 time=105 ms
+64 bytes from 8.8.8.8: icmp_seq=2 ttl=128 time=101 ms
+64 bytes from 8.8.8.8: icmp_seq=3 ttl=128 time=126 ms
+64 bytes from 8.8.8.8: icmp_seq=4 ttl=128 time=105 ms
+64 bytes from 8.8.8.8: icmp_seq=5 ttl=128 time=105 ms
+
+--- 8.8.8.8 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4007ms
+rtt min/avg/max/mdev = 101.210/108.331/125.831/8.865 ms
+[03:24:23] 3) Telnet test to google.com on port 80
+A successful connection shows 'Connected to google.com'
+Trying 142.251.14.100...
+Connected to google.com.
+Escape character is '^]'.
+Connection closed by foreign host.
+[03:24:23] 4) Listening TCP ports with netstat
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      1917/sshd: /usr/sbi 
+tcp6       0      0 :::22                   :::*                    LISTEN      1917/sshd: /usr/sbi 
+tcp6       0      0 :::80                   :::*                    LISTEN      1229/apache2        
+[03:24:23] 5) Which process listens on port 22 (lsof)
+COMMAND  PID USER FD   TYPE DEVICE SIZE/OFF NODE NAME
+sshd    1917 root 6u  IPv4  14758      0t0  TCP *:ssh (LISTEN)
+sshd    1917 root 7u  IPv6  14760      0t0  TCP *:ssh (LISTEN)
+[03:24:23] 6) nmap scan first 100 ports of localhost
+Starting Nmap 7.95 ( https://nmap.org ) at 2026-10-07 03:24 EDT
+Nmap scan report for localhost (127.0.0.1)
+Host is up (0.0000020s latency).
+Other addresses for localhost (not scanned): ::1
+Not shown: 98 closed tcp ports (reset)
+PORT   STATE SERVICE
+22/tcp open  ssh
+80/tcp open  http
+
+Nmap done: 1 IP address (1 host up) scanned in 0.07 seconds
+[03:24:23] 7) Routing table with route -n
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+0.0.0.0         192.168.76.2    0.0.0.0         UG    1002   0        0 ens33
+172.17.0.0      0.0.0.0         255.255.0.0     U     0      0        0 docker0
+192.168.76.0    0.0.0.0         255.255.255.0   U     1002   0        0 ens33
+192.168.100.0   192.168.76.2    255.255.255.0   UG    0      0        0 ens33
+[03:24:23] 8) Add temporary route to 192.168.100.0/24 via 192.168.76.2
+./run.sh: line 129: syntax error near unexpected token `&&'
+./run.sh: line 129: `        && echo "Route added successfully" \'
