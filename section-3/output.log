@@ -1,0 +1,220 @@
+[02:44:36] ===== START =====
+[02:44:36] 1) Check status of ssh service
+● ssh.service - OpenBSD Secure Shell server
+     Loaded: loaded (/usr/lib/systemd/system/ssh.service; enabled; preset: enabled)
+     Active: active (running) since Wed 2026-10-07 02:33:29 EDT; 11min ago
+ Invocation: 5ebf856c556e4f0bb64276bad3a4eb5c
+       Docs: man:sshd(8)
+             man:sshd_config(5)
+   Main PID: 1658 (sshd)
+      Tasks: 1 (limit: 2252)
+     Memory: 1.3M (peak: 2.1M)
+        CPU: 42ms
+     CGroup: /system.slice/ssh.service
+             └─1658 "sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups"
+
+Oct 07 02:33:29 debian systemd[1]: Starting ssh.service - OpenBSD Secure Shell server...
+Oct 07 02:33:29 debian sshd[1658]: Server listening on 0.0.0.0 port 22.
+Oct 07 02:33:29 debian sshd[1658]: Server listening on :: port 22.
+Oct 07 02:33:29 debian systemd[1]: Started ssh.service - OpenBSD Secure Shell server.
+[02:44:36] 2) Start ssh service
+[02:44:36] 2) Stop ssh service
+[02:44:36] 2) Restart ssh service
+● ssh.service - OpenBSD Secure Shell server
+     Loaded: loaded (/usr/lib/systemd/system/ssh.service; enabled; preset: enabled)
+     Active: active (running) since Wed 2026-10-07 02:44:36 EDT; 10ms ago
+ Invocation: 3291ceda0ded4ee398c3c80689a724be
+       Docs: man:sshd(8)
+             man:sshd_config(5)
+    Process: 1915 ExecStartPre=/usr/sbin/sshd -t (code=exited, status=0/SUCCESS)
+   Main PID: 1917 (sshd)
+      Tasks: 1 (limit: 2252)
+     Memory: 1.3M (peak: 2.2M)
+        CPU: 26ms
+     CGroup: /system.slice/ssh.service
+             └─1917 "sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups"
+
+Oct 07 02:44:36 debian systemd[1]: Starting ssh.service - OpenBSD Secure Shell server...
+Oct 07 02:44:36 debian sshd[1917]: Server listening on 0.0.0.0 port 22.
+Oct 07 02:44:36 debian sshd[1917]: Server listening on :: port 22.
+Oct 07 02:44:36 debian systemd[1]: Started ssh.service - OpenBSD Secure Shell server.
+[02:44:36] 3) Enable ssh service to start automatically
+Synchronizing state of ssh.service with SysV service script with /usr/lib/systemd/systemd-sysv-install.
+Executing: /usr/lib/systemd/systemd-sysv-install enable ssh
+[02:44:36] 4) List all currently active services
+  UNIT                                                                                      LOAD   ACTIVE SUB     DESCRIPTION
+  apache2.service                                                                           loaded active running The Apache HTTP Server
+  apparmor.service                                                                          loaded active exited  Load AppArmor profiles
+  blk-availability.service                                                                  loaded active exited  Availability of block devices
+  console-setup.service                                                                     loaded active exited  Set console font and keymap
+  containerd.service                                                                        loaded active running containerd container runtime
+  cron.service                                                                              loaded active running Regular background program processing daemon
+  dbus.service                                                                              loaded active running D-Bus System Message Bus
+  docker.service                                                                            loaded active running Docker Application Container Engine
+  getty@tty1.service                                                                        loaded active running Getty on tty1
+  getty@tty6.service                                                                        loaded active running Getty on tty6
+  ifup@ens33.service                                                                        loaded active exited  ifup for ens33
+  ifupdown-pre.service                                                                      loaded active exited  Helper to synchronize boot up for ifupdown
+  keyboard-setup.service                                                                    loaded active exited  Set the console keyboard layout
+  kmod-static-nodes.service                                                                 loaded active exited  Create List of Static Device Nodes
+  lvm2-monitor.service                                                                      loaded active exited  Monitoring of LVM2 mirrors, snapshots etc. using dmeventd or progress polling
+  networking.service                                                                        loaded active exited  Raise network interfaces
+  open-vm-tools.service                                                                     loaded active running Service for virtual machines hosted on VMware
+  ssh.service                                                                               loaded active running OpenBSD Secure Shell server
+  systemd-binfmt.service                                                                    loaded active exited  Set Up Additional Binary Formats
+  systemd-fsck@dev-disk-by\x2duuid-777fdcdb\x2d094a\x2d472a\x2da623\x2d038c3c585e88.service loaded active exited  File System Check on /dev/disk/by-uuid/777fdcdb-094a-472a-a623-038c3c585e88
+  systemd-journal-flush.service                                                             loaded active exited  Flush Journal to Persistent Storage
+  systemd-journald.service                                                                  loaded active running Journal Service
+  systemd-logind.service                                                                    loaded active running User Login Management
+  systemd-modules-load.service                                                              loaded active exited  Load Kernel Modules
+  systemd-random-seed.service                                                               loaded active exited  Load/Save OS Random Seed
+  systemd-remount-fs.service                                                                loaded active exited  Remount Root and Kernel File Systems
+  systemd-sysctl.service                                                                    loaded active exited  Apply Kernel Variables
+  systemd-timesyncd.service                                                                 loaded active running Network Time Synchronization
+  systemd-tmpfiles-setup-dev-early.service                                                  loaded active exited  Create Static Device Nodes in /dev gracefully
+  systemd-tmpfiles-setup-dev.service                                                        loaded active exited  Create Static Device Nodes in /dev
+  systemd-tmpfiles-setup.service                                                            loaded active exited  Create System Files and Directories
+  systemd-udev-load-credentials.service                                                     loaded active exited  Load udev Rules from Credentials
+  systemd-udev-trigger.service                                                              loaded active exited  Coldplug All udev Devices
+  systemd-udevd.service                                                                     loaded active running Rule-based Manager for Device Events and Files
+  systemd-user-sessions.service                                                             loaded active exited  Permit User Sessions
+  user-runtime-dir@1004.service                                                             loaded active exited  User Runtime Directory /run/user/1004
+  user@1004.service                                                                         loaded active running User Manager for UID 1004
+  vgauth.service                                                                            loaded active running Authentication service for virtual machines hosted on VMware
+  wtmpdb-update-boot.service                                                                loaded active exited  Write boot and shutdown times into wtmpdb
+
+Legend: LOAD   → Reflects whether the unit definition was properly loaded.
+        ACTIVE → The high-level unit activation state, i.e. generalization of SUB.
+        SUB    → The low-level unit activation state, values depend on unit type.
+
+39 loaded units listed.
+[02:44:36] 5) Determine current runlevel (two methods)
+--- Method 1: runlevel command ---
+unknown
+--- Method 2: who -r ---
+[02:44:36] 6) Difference between init and systemd:
+init    -> old system, sequential startup, uses /etc/inittab, SysV scripts
+systemd -> modern system, parallel startup, uses unit files, targets instead of runlevels
+[02:44:36] 7) What was inittab and why is it no longer used?
+/etc/inittab defined the default runlevel and per-runlevel scripts (SysV init).
+systemd replaced it because it starts services in parallel, faster, and uses unit files.
+[02:44:36] 8) systemd targets for runlevel 3 and runlevel 5
+runlevel 3 -> multi-user.target
+runlevel 5 -> graphical.target
+[02:44:36] 9) Default boot target
+graphical.target
+[02:44:36] ===== END =====
+
+======================================
+  FINAL OUTPUT (from output.log)
+======================================
+[02:44:36] ===== START =====
+[02:44:36] 1) Check status of ssh service
+● ssh.service - OpenBSD Secure Shell server
+     Loaded: loaded (/usr/lib/systemd/system/ssh.service; enabled; preset: enabled)
+     Active: active (running) since Wed 2026-10-07 02:33:29 EDT; 11min ago
+ Invocation: 5ebf856c556e4f0bb64276bad3a4eb5c
+       Docs: man:sshd(8)
+             man:sshd_config(5)
+   Main PID: 1658 (sshd)
+      Tasks: 1 (limit: 2252)
+     Memory: 1.3M (peak: 2.1M)
+        CPU: 42ms
+     CGroup: /system.slice/ssh.service
+             └─1658 "sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups"
+
+Oct 07 02:33:29 debian systemd[1]: Starting ssh.service - OpenBSD Secure Shell server...
+Oct 07 02:33:29 debian sshd[1658]: Server listening on 0.0.0.0 port 22.
+Oct 07 02:33:29 debian sshd[1658]: Server listening on :: port 22.
+Oct 07 02:33:29 debian systemd[1]: Started ssh.service - OpenBSD Secure Shell server.
+[02:44:36] 2) Start ssh service
+[02:44:36] 2) Stop ssh service
+[02:44:36] 2) Restart ssh service
+● ssh.service - OpenBSD Secure Shell server
+     Loaded: loaded (/usr/lib/systemd/system/ssh.service; enabled; preset: enabled)
+     Active: active (running) since Wed 2026-10-07 02:44:36 EDT; 10ms ago
+ Invocation: 3291ceda0ded4ee398c3c80689a724be
+       Docs: man:sshd(8)
+             man:sshd_config(5)
+    Process: 1915 ExecStartPre=/usr/sbin/sshd -t (code=exited, status=0/SUCCESS)
+   Main PID: 1917 (sshd)
+      Tasks: 1 (limit: 2252)
+     Memory: 1.3M (peak: 2.2M)
+        CPU: 26ms
+     CGroup: /system.slice/ssh.service
+             └─1917 "sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups"
+
+Oct 07 02:44:36 debian systemd[1]: Starting ssh.service - OpenBSD Secure Shell server...
+Oct 07 02:44:36 debian sshd[1917]: Server listening on 0.0.0.0 port 22.
+Oct 07 02:44:36 debian sshd[1917]: Server listening on :: port 22.
+Oct 07 02:44:36 debian systemd[1]: Started ssh.service - OpenBSD Secure Shell server.
+[02:44:36] 3) Enable ssh service to start automatically
+Synchronizing state of ssh.service with SysV service script with /usr/lib/systemd/systemd-sysv-install.
+Executing: /usr/lib/systemd/systemd-sysv-install enable ssh
+[02:44:36] 4) List all currently active services
+  UNIT                                                                                      LOAD   ACTIVE SUB     DESCRIPTION
+  apache2.service                                                                           loaded active running The Apache HTTP Server
+  apparmor.service                                                                          loaded active exited  Load AppArmor profiles
+  blk-availability.service                                                                  loaded active exited  Availability of block devices
+  console-setup.service                                                                     loaded active exited  Set console font and keymap
+  containerd.service                                                                        loaded active running containerd container runtime
+  cron.service                                                                              loaded active running Regular background program processing daemon
+  dbus.service                                                                              loaded active running D-Bus System Message Bus
+  docker.service                                                                            loaded active running Docker Application Container Engine
+  getty@tty1.service                                                                        loaded active running Getty on tty1
+  getty@tty6.service                                                                        loaded active running Getty on tty6
+  ifup@ens33.service                                                                        loaded active exited  ifup for ens33
+  ifupdown-pre.service                                                                      loaded active exited  Helper to synchronize boot up for ifupdown
+  keyboard-setup.service                                                                    loaded active exited  Set the console keyboard layout
+  kmod-static-nodes.service                                                                 loaded active exited  Create List of Static Device Nodes
+  lvm2-monitor.service                                                                      loaded active exited  Monitoring of LVM2 mirrors, snapshots etc. using dmeventd or progress polling
+  networking.service                                                                        loaded active exited  Raise network interfaces
+  open-vm-tools.service                                                                     loaded active running Service for virtual machines hosted on VMware
+  ssh.service                                                                               loaded active running OpenBSD Secure Shell server
+  systemd-binfmt.service                                                                    loaded active exited  Set Up Additional Binary Formats
+  systemd-fsck@dev-disk-by\x2duuid-777fdcdb\x2d094a\x2d472a\x2da623\x2d038c3c585e88.service loaded active exited  File System Check on /dev/disk/by-uuid/777fdcdb-094a-472a-a623-038c3c585e88
+  systemd-journal-flush.service                                                             loaded active exited  Flush Journal to Persistent Storage
+  systemd-journald.service                                                                  loaded active running Journal Service
+  systemd-logind.service                                                                    loaded active running User Login Management
+  systemd-modules-load.service                                                              loaded active exited  Load Kernel Modules
+  systemd-random-seed.service                                                               loaded active exited  Load/Save OS Random Seed
+  systemd-remount-fs.service                                                                loaded active exited  Remount Root and Kernel File Systems
+  systemd-sysctl.service                                                                    loaded active exited  Apply Kernel Variables
+  systemd-timesyncd.service                                                                 loaded active running Network Time Synchronization
+  systemd-tmpfiles-setup-dev-early.service                                                  loaded active exited  Create Static Device Nodes in /dev gracefully
+  systemd-tmpfiles-setup-dev.service                                                        loaded active exited  Create Static Device Nodes in /dev
+  systemd-tmpfiles-setup.service                                                            loaded active exited  Create System Files and Directories
+  systemd-udev-load-credentials.service                                                     loaded active exited  Load udev Rules from Credentials
+  systemd-udev-trigger.service                                                              loaded active exited  Coldplug All udev Devices
+  systemd-udevd.service                                                                     loaded active running Rule-based Manager for Device Events and Files
+  systemd-user-sessions.service                                                             loaded active exited  Permit User Sessions
+  user-runtime-dir@1004.service                                                             loaded active exited  User Runtime Directory /run/user/1004
+  user@1004.service                                                                         loaded active running User Manager for UID 1004
+  vgauth.service                                                                            loaded active running Authentication service for virtual machines hosted on VMware
+  wtmpdb-update-boot.service                                                                loaded active exited  Write boot and shutdown times into wtmpdb
+
+Legend: LOAD   → Reflects whether the unit definition was properly loaded.
+        ACTIVE → The high-level unit activation state, i.e. generalization of SUB.
+        SUB    → The low-level unit activation state, values depend on unit type.
+
+39 loaded units listed.
+[02:44:36] 5) Determine current runlevel (two methods)
+--- Method 1: runlevel command ---
+unknown
+--- Method 2: who -r ---
+[02:44:36] 6) Difference between init and systemd:
+init    -> old system, sequential startup, uses /etc/inittab, SysV scripts
+systemd -> modern system, parallel startup, uses unit files, targets instead of runlevels
+[02:44:36] 7) What was inittab and why is it no longer used?
+/etc/inittab defined the default runlevel and per-runlevel scripts (SysV init).
+systemd replaced it because it starts services in parallel, faster, and uses unit files.
+[02:44:36] 8) systemd targets for runlevel 3 and runlevel 5
+runlevel 3 -> multi-user.target
+runlevel 5 -> graphical.target
+[02:44:36] 9) Default boot target
+graphical.target
+[02:44:36] ===== END =====
+
+======================================
+  FINAL OUTPUT (from output.log)
+======================================
