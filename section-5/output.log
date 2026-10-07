@@ -1,0 +1,33 @@
+===== START =====
+--- Test 5.1 ---
+Installing curl...
+Load: 0.07
+./install_and_load.sh: line 41: bc: command not found
+--- Test 5.2 ---
+tar: Removing leading `/' from member names
+Saved: /backups/backup_2026-10-07_07-48-04.tar.gz
+Backups:
+backup_2026-10-07_07-48-04.tar.gz
+backup_testdata_2026-10-07.tar.gz
+Restored to /tmp/restored
+total 0
+drwxr-xr-x  3 root root  60 Oct  7 07:48 .
+drwxrwxrwt 12 root root 240 Oct  7 07:48 ..
+drwxr-xr-x  3 root root  60 Oct  7 07:48 tmp
+===== END =====
+===== START =====
+--- Test 5.1 ---
+Installing curl...
+Load: 0.07
+./install_and_load.sh: line 41: bc: command not found
+--- Test 5.2 ---
+tar: Removing leading `/' from member names
+Saved: /backups/backup_2026-10-07_07-48-04.tar.gz
+Backups:
+backup_2026-10-07_07-48-04.tar.gz
+backup_testdata_2026-10-07.tar.gz
+Restored to /tmp/restored
+total 0
+drwxr-xr-x  3 root root  60 Oct  7 07:48 .
+drwxrwxrwt 12 root root 240 Oct  7 07:48 ..
+drwxr-xr-x  3 root root  60 Oct  7 07:48 tmp
