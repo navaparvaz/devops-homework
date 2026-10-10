@@ -1,0 +1,499 @@
+===== START =====
+--- 1) SSH status ---
+● ssh.service - OpenBSD Secure Shell server
+     Loaded: loaded (/usr/lib/systemd/system/ssh.service; enabled; preset: enabled)
+     Active: active (running) since Sat 2026-10-10 02:26:09 EDT; 20min ago
+ Invocation: 8b0a75e643bf47cda9bb9eb99b5388e6
+       Docs: man:sshd(8)
+--- 2) Edit sshd_config ---
+Port 2222
+PermitRootLogin no
+PasswordAuthentication no
+AllowUsers alice
+--- 3) Restart SSH ---
+LISTEN 0      128          0.0.0.0:2222      0.0.0.0:*    users:(("sshd",pid=2235,fd=6))                                                       
+LISTEN 0      128             [::]:2222         [::]:*    users:(("sshd",pid=2235,fd=7))                                                       
+--- 4) Deny 192.168.1.50 ---
+# /etc/hosts.deny: list of hosts that are _not_ allowed to access the system.
+#                  See the manual pages hosts_access(5) and hosts_options(5).
+#
+# Example:    ALL: some.host.name, .some.domain
+#             ALL EXCEPT in.fingerd: other.host.name, .other.domain
+#
+# If you're going to protect the portmapper use the name "rpcbind" for the
+# daemon name. See rpcbind(8) and rpc.mountd(8) for further information.
+#
+# The PARANOID wildcard matches any host whose name does not match its
+# address.
+#
+# You may wish to enable this to ensure any programs that don't
+# validate looked up hostnames still leave understandable logs. In past
+# versions of Debian this has been the default.
+# ALL: PARANOID
+
+sshd: 192.168.1.50
+--- 5) Allow 192.168.1.0/24 ---
+# /etc/hosts.allow: list of hosts that are allowed to access the system.
+#                   See the manual pages hosts_access(5) and hosts_options(5).
+#
+# Example:    ALL: LOCAL @some_netgroup
+#             ALL: .foobar.edu EXCEPT terminalserver.foobar.edu
+#
+# If you're going to protect the portmapper use the name "rpcbind" for the
+# daemon name. See rpcbind(8) and rpc.mountd(8) for further information.
+#
+
+sshd: 192.168.1.0/24
+--- 6) Generate key for alice ---
+--- .ssh contents ---
+total 20
+drwx------ 2 alice alice 4096 Oct 10 02:46 .
+drwx------ 4 alice alice 4096 Oct 10 02:46 ..
+-rw------- 1 alice alice  566 Oct 10 02:46 authorized_keys
+-rw------- 1 alice alice 2602 Oct 10 02:46 id_rsa
+-rw-r--r-- 1 alice alice  566 Oct 10 02:46 id_rsa.pub
+===== END =====
+===== START =====
+--- 1) SSH status ---
+● ssh.service - OpenBSD Secure Shell server
+     Loaded: loaded (/usr/lib/systemd/system/ssh.service; enabled; preset: enabled)
+     Active: active (running) since Sat 2026-10-10 02:26:09 EDT; 20min ago
+ Invocation: 8b0a75e643bf47cda9bb9eb99b5388e6
+       Docs: man:sshd(8)
+--- 2) Edit sshd_config ---
+Port 2222
+PermitRootLogin no
+PasswordAuthentication no
+AllowUsers alice
+--- 3) Restart SSH ---
+LISTEN 0      128          0.0.0.0:2222      0.0.0.0:*    users:(("sshd",pid=2235,fd=6))                                                       
+LISTEN 0      128             [::]:2222         [::]:*    users:(("sshd",pid=2235,fd=7))                                                       
+--- 4) Deny 192.168.1.50 ---
+# /etc/hosts.deny: list of hosts that are _not_ allowed to access the system.
+#                  See the manual pages hosts_access(5) and hosts_options(5).
+#
+# Example:    ALL: some.host.name, .some.domain
+#             ALL EXCEPT in.fingerd: other.host.name, .other.domain
+#
+# If you're going to protect the portmapper use the name "rpcbind" for the
+# daemon name. See rpcbind(8) and rpc.mountd(8) for further information.
+#
+# The PARANOID wildcard matches any host whose name does not match its
+# address.
+#
+# You may wish to enable this to ensure any programs that don't
+# validate looked up hostnames still leave understandable logs. In past
+# versions of Debian this has been the default.
+# ALL: PARANOID
+
+sshd: 192.168.1.50
+--- 5) Allow 192.168.1.0/24 ---
+# /etc/hosts.allow: list of hosts that are allowed to access the system.
+#                   See the manual pages hosts_access(5) and hosts_options(5).
+#
+# Example:    ALL: LOCAL @some_netgroup
+#             ALL: .foobar.edu EXCEPT terminalserver.foobar.edu
+#
+# If you're going to protect the portmapper use the name "rpcbind" for the
+# daemon name. See rpcbind(8) and rpc.mountd(8) for further information.
+#
+
+sshd: 192.168.1.0/24
+--- 6) Generate key for alice ---
+--- .ssh contents ---
+total 20
+drwx------ 2 alice alice 4096 Oct 10 02:46 .
+drwx------ 4 alice alice 4096 Oct 10 02:46 ..
+-rw------- 1 alice alice  566 Oct 10 02:46 authorized_keys
+-rw------- 1 alice alice 2602 Oct 10 02:46 id_rsa
+-rw-r--r-- 1 alice alice  566 Oct 10 02:46 id_rsa.pub
+===== END =====
+===== START =====
+--- 1) SSH status ---
+● ssh.service - OpenBSD Secure Shell server
+     Loaded: loaded (/usr/lib/systemd/system/ssh.service; enabled; preset: enabled)
+     Active: active (running) since Sat 2026-10-10 02:26:09 EDT; 20min ago
+ Invocation: 8b0a75e643bf47cda9bb9eb99b5388e6
+       Docs: man:sshd(8)
+--- 2) Edit sshd_config ---
+Port 2222
+PermitRootLogin no
+PasswordAuthentication no
+AllowUsers alice
+--- 3) Restart SSH ---
+LISTEN 0      128          0.0.0.0:2222      0.0.0.0:*    users:(("sshd",pid=2235,fd=6))                                                       
+LISTEN 0      128             [::]:2222         [::]:*    users:(("sshd",pid=2235,fd=7))                                                       
+--- 4) Deny 192.168.1.50 ---
+# /etc/hosts.deny: list of hosts that are _not_ allowed to access the system.
+#                  See the manual pages hosts_access(5) and hosts_options(5).
+#
+# Example:    ALL: some.host.name, .some.domain
+#             ALL EXCEPT in.fingerd: other.host.name, .other.domain
+#
+# If you're going to protect the portmapper use the name "rpcbind" for the
+# daemon name. See rpcbind(8) and rpc.mountd(8) for further information.
+#
+# The PARANOID wildcard matches any host whose name does not match its
+# address.
+#
+# You may wish to enable this to ensure any programs that don't
+# validate looked up hostnames still leave understandable logs. In past
+# versions of Debian this has been the default.
+# ALL: PARANOID
+
+sshd: 192.168.1.50
+--- 5) Allow 192.168.1.0/24 ---
+# /etc/hosts.allow: list of hosts that are allowed to access the system.
+#                   See the manual pages hosts_access(5) and hosts_options(5).
+#
+# Example:    ALL: LOCAL @some_netgroup
+#             ALL: .foobar.edu EXCEPT terminalserver.foobar.edu
+#
+# If you're going to protect the portmapper use the name "rpcbind" for the
+# daemon name. See rpcbind(8) and rpc.mountd(8) for further information.
+#
+
+sshd: 192.168.1.0/24
+--- 6) Generate key for alice ---
+--- .ssh contents ---
+total 20
+drwx------ 2 alice alice 4096 Oct 10 02:46 .
+drwx------ 4 alice alice 4096 Oct 10 02:46 ..
+-rw------- 1 alice alice  566 Oct 10 02:46 authorized_keys
+-rw------- 1 alice alice 2602 Oct 10 02:46 id_rsa
+-rw-r--r-- 1 alice alice  566 Oct 10 02:46 id_rsa.pub
+===== END =====
+===== START =====
+--- 1) SSH status ---
+● ssh.service - OpenBSD Secure Shell server
+     Loaded: loaded (/usr/lib/systemd/system/ssh.service; enabled; preset: enabled)
+     Active: active (running) since Sat 2026-10-10 02:26:09 EDT; 20min ago
+ Invocation: 8b0a75e643bf47cda9bb9eb99b5388e6
+       Docs: man:sshd(8)
+--- 2) Edit sshd_config ---
+Port 2222
+PermitRootLogin no
+PasswordAuthentication no
+AllowUsers alice
+--- 3) Restart SSH ---
+LISTEN 0      128          0.0.0.0:2222      0.0.0.0:*    users:(("sshd",pid=2235,fd=6))                                                       
+LISTEN 0      128             [::]:2222         [::]:*    users:(("sshd",pid=2235,fd=7))                                                       
+--- 4) Deny 192.168.1.50 ---
+# /etc/hosts.deny: list of hosts that are _not_ allowed to access the system.
+#                  See the manual pages hosts_access(5) and hosts_options(5).
+#
+# Example:    ALL: some.host.name, .some.domain
+#             ALL EXCEPT in.fingerd: other.host.name, .other.domain
+#
+# If you're going to protect the portmapper use the name "rpcbind" for the
+# daemon name. See rpcbind(8) and rpc.mountd(8) for further information.
+#
+# The PARANOID wildcard matches any host whose name does not match its
+# address.
+#
+# You may wish to enable this to ensure any programs that don't
+# validate looked up hostnames still leave understandable logs. In past
+# versions of Debian this has been the default.
+# ALL: PARANOID
+
+sshd: 192.168.1.50
+--- 5) Allow 192.168.1.0/24 ---
+# /etc/hosts.allow: list of hosts that are allowed to access the system.
+#                   See the manual pages hosts_access(5) and hosts_options(5).
+#
+# Example:    ALL: LOCAL @some_netgroup
+#             ALL: .foobar.edu EXCEPT terminalserver.foobar.edu
+#
+# If you're going to protect the portmapper use the name "rpcbind" for the
+# daemon name. See rpcbind(8) and rpc.mountd(8) for further information.
+#
+
+sshd: 192.168.1.0/24
+--- 6) Generate key for alice ---
+--- .ssh contents ---
+total 20
+drwx------ 2 alice alice 4096 Oct 10 02:46 .
+drwx------ 4 alice alice 4096 Oct 10 02:46 ..
+-rw------- 1 alice alice  566 Oct 10 02:46 authorized_keys
+-rw------- 1 alice alice 2602 Oct 10 02:46 id_rsa
+-rw-r--r-- 1 alice alice  566 Oct 10 02:46 id_rsa.pub
+===== END =====
+===== START =====
+--- 1) SSH status ---
+● ssh.service - OpenBSD Secure Shell server
+     Loaded: loaded (/usr/lib/systemd/system/ssh.service; enabled; preset: enabled)
+     Active: active (running) since Sat 2026-10-10 02:26:09 EDT; 20min ago
+ Invocation: 8b0a75e643bf47cda9bb9eb99b5388e6
+       Docs: man:sshd(8)
+--- 2) Edit sshd_config ---
+Port 2222
+PermitRootLogin no
+PasswordAuthentication no
+AllowUsers alice
+--- 3) Restart SSH ---
+LISTEN 0      128          0.0.0.0:2222      0.0.0.0:*    users:(("sshd",pid=2235,fd=6))                                                       
+LISTEN 0      128             [::]:2222         [::]:*    users:(("sshd",pid=2235,fd=7))                                                       
+--- 4) Deny 192.168.1.50 ---
+# /etc/hosts.deny: list of hosts that are _not_ allowed to access the system.
+#                  See the manual pages hosts_access(5) and hosts_options(5).
+#
+# Example:    ALL: some.host.name, .some.domain
+#             ALL EXCEPT in.fingerd: other.host.name, .other.domain
+#
+# If you're going to protect the portmapper use the name "rpcbind" for the
+# daemon name. See rpcbind(8) and rpc.mountd(8) for further information.
+#
+# The PARANOID wildcard matches any host whose name does not match its
+# address.
+#
+# You may wish to enable this to ensure any programs that don't
+# validate looked up hostnames still leave understandable logs. In past
+# versions of Debian this has been the default.
+# ALL: PARANOID
+
+sshd: 192.168.1.50
+--- 5) Allow 192.168.1.0/24 ---
+# /etc/hosts.allow: list of hosts that are allowed to access the system.
+#                   See the manual pages hosts_access(5) and hosts_options(5).
+#
+# Example:    ALL: LOCAL @some_netgroup
+#             ALL: .foobar.edu EXCEPT terminalserver.foobar.edu
+#
+# If you're going to protect the portmapper use the name "rpcbind" for the
+# daemon name. See rpcbind(8) and rpc.mountd(8) for further information.
+#
+
+sshd: 192.168.1.0/24
+--- 6) Generate key for alice ---
+--- .ssh contents ---
+total 20
+drwx------ 2 alice alice 4096 Oct 10 02:46 .
+drwx------ 4 alice alice 4096 Oct 10 02:46 ..
+-rw------- 1 alice alice  566 Oct 10 02:46 authorized_keys
+-rw------- 1 alice alice 2602 Oct 10 02:46 id_rsa
+-rw-r--r-- 1 alice alice  566 Oct 10 02:46 id_rsa.pub
+===== END =====
+===== START =====
+--- 1) SSH status ---
+● ssh.service - OpenBSD Secure Shell server
+     Loaded: loaded (/usr/lib/systemd/system/ssh.service; enabled; preset: enabled)
+     Active: active (running) since Sat 2026-10-10 02:26:09 EDT; 20min ago
+ Invocation: 8b0a75e643bf47cda9bb9eb99b5388e6
+       Docs: man:sshd(8)
+--- 2) Edit sshd_config ---
+Port 2222
+PermitRootLogin no
+PasswordAuthentication no
+AllowUsers alice
+--- 3) Restart SSH ---
+LISTEN 0      128          0.0.0.0:2222      0.0.0.0:*    users:(("sshd",pid=2235,fd=6))                                                       
+LISTEN 0      128             [::]:2222         [::]:*    users:(("sshd",pid=2235,fd=7))                                                       
+--- 4) Deny 192.168.1.50 ---
+# /etc/hosts.deny: list of hosts that are _not_ allowed to access the system.
+#                  See the manual pages hosts_access(5) and hosts_options(5).
+#
+# Example:    ALL: some.host.name, .some.domain
+#             ALL EXCEPT in.fingerd: other.host.name, .other.domain
+#
+# If you're going to protect the portmapper use the name "rpcbind" for the
+# daemon name. See rpcbind(8) and rpc.mountd(8) for further information.
+#
+# The PARANOID wildcard matches any host whose name does not match its
+# address.
+#
+# You may wish to enable this to ensure any programs that don't
+# validate looked up hostnames still leave understandable logs. In past
+# versions of Debian this has been the default.
+# ALL: PARANOID
+
+sshd: 192.168.1.50
+--- 5) Allow 192.168.1.0/24 ---
+# /etc/hosts.allow: list of hosts that are allowed to access the system.
+#                   See the manual pages hosts_access(5) and hosts_options(5).
+#
+# Example:    ALL: LOCAL @some_netgroup
+#             ALL: .foobar.edu EXCEPT terminalserver.foobar.edu
+#
+# If you're going to protect the portmapper use the name "rpcbind" for the
+# daemon name. See rpcbind(8) and rpc.mountd(8) for further information.
+#
+
+sshd: 192.168.1.0/24
+--- 6) Generate key for alice ---
+--- .ssh contents ---
+total 20
+drwx------ 2 alice alice 4096 Oct 10 02:46 .
+drwx------ 4 alice alice 4096 Oct 10 02:46 ..
+-rw------- 1 alice alice  566 Oct 10 02:46 authorized_keys
+-rw------- 1 alice alice 2602 Oct 10 02:46 id_rsa
+-rw-r--r-- 1 alice alice  566 Oct 10 02:46 id_rsa.pub
+===== END =====
+===== START =====
+--- 1) SSH status ---
+● ssh.service - OpenBSD Secure Shell server
+     Loaded: loaded (/usr/lib/systemd/system/ssh.service; enabled; preset: enabled)
+     Active: active (running) since Sat 2026-10-10 02:26:09 EDT; 20min ago
+ Invocation: 8b0a75e643bf47cda9bb9eb99b5388e6
+       Docs: man:sshd(8)
+--- 2) Edit sshd_config ---
+Port 2222
+PermitRootLogin no
+PasswordAuthentication no
+AllowUsers alice
+--- 3) Restart SSH ---
+LISTEN 0      128          0.0.0.0:2222      0.0.0.0:*    users:(("sshd",pid=2235,fd=6))                                                       
+LISTEN 0      128             [::]:2222         [::]:*    users:(("sshd",pid=2235,fd=7))                                                       
+--- 4) Deny 192.168.1.50 ---
+# /etc/hosts.deny: list of hosts that are _not_ allowed to access the system.
+#                  See the manual pages hosts_access(5) and hosts_options(5).
+#
+# Example:    ALL: some.host.name, .some.domain
+#             ALL EXCEPT in.fingerd: other.host.name, .other.domain
+#
+# If you're going to protect the portmapper use the name "rpcbind" for the
+# daemon name. See rpcbind(8) and rpc.mountd(8) for further information.
+#
+# The PARANOID wildcard matches any host whose name does not match its
+# address.
+#
+# You may wish to enable this to ensure any programs that don't
+# validate looked up hostnames still leave understandable logs. In past
+# versions of Debian this has been the default.
+# ALL: PARANOID
+
+sshd: 192.168.1.50
+--- 5) Allow 192.168.1.0/24 ---
+# /etc/hosts.allow: list of hosts that are allowed to access the system.
+#                   See the manual pages hosts_access(5) and hosts_options(5).
+#
+# Example:    ALL: LOCAL @some_netgroup
+#             ALL: .foobar.edu EXCEPT terminalserver.foobar.edu
+#
+# If you're going to protect the portmapper use the name "rpcbind" for the
+# daemon name. See rpcbind(8) and rpc.mountd(8) for further information.
+#
+
+sshd: 192.168.1.0/24
+--- 6) Generate key for alice ---
+--- .ssh contents ---
+total 20
+drwx------ 2 alice alice 4096 Oct 10 02:46 .
+drwx------ 4 alice alice 4096 Oct 10 02:46 ..
+-rw------- 1 alice alice  566 Oct 10 02:46 authorized_keys
+-rw------- 1 alice alice 2602 Oct 10 02:46 id_rsa
+-rw-r--r-- 1 alice alice  566 Oct 10 02:46 id_rsa.pub
+===== END =====
+===== START =====
+--- 1) SSH status ---
+● ssh.service - OpenBSD Secure Shell server
+     Loaded: loaded (/usr/lib/systemd/system/ssh.service; enabled; preset: enabled)
+     Active: active (running) since Sat 2026-10-10 02:26:09 EDT; 20min ago
+ Invocation: 8b0a75e643bf47cda9bb9eb99b5388e6
+       Docs: man:sshd(8)
+--- 2) Edit sshd_config ---
+Port 2222
+PermitRootLogin no
+PasswordAuthentication no
+AllowUsers alice
+--- 3) Restart SSH ---
+LISTEN 0      128          0.0.0.0:2222      0.0.0.0:*    users:(("sshd",pid=2235,fd=6))                                                       
+LISTEN 0      128             [::]:2222         [::]:*    users:(("sshd",pid=2235,fd=7))                                                       
+--- 4) Deny 192.168.1.50 ---
+# /etc/hosts.deny: list of hosts that are _not_ allowed to access the system.
+#                  See the manual pages hosts_access(5) and hosts_options(5).
+#
+# Example:    ALL: some.host.name, .some.domain
+#             ALL EXCEPT in.fingerd: other.host.name, .other.domain
+#
+# If you're going to protect the portmapper use the name "rpcbind" for the
+# daemon name. See rpcbind(8) and rpc.mountd(8) for further information.
+#
+# The PARANOID wildcard matches any host whose name does not match its
+# address.
+#
+# You may wish to enable this to ensure any programs that don't
+# validate looked up hostnames still leave understandable logs. In past
+# versions of Debian this has been the default.
+# ALL: PARANOID
+
+sshd: 192.168.1.50
+--- 5) Allow 192.168.1.0/24 ---
+# /etc/hosts.allow: list of hosts that are allowed to access the system.
+#                   See the manual pages hosts_access(5) and hosts_options(5).
+#
+# Example:    ALL: LOCAL @some_netgroup
+#             ALL: .foobar.edu EXCEPT terminalserver.foobar.edu
+#
+# If you're going to protect the portmapper use the name "rpcbind" for the
+# daemon name. See rpcbind(8) and rpc.mountd(8) for further information.
+#
+
+sshd: 192.168.1.0/24
+--- 6) Generate key for alice ---
+--- .ssh contents ---
+total 20
+drwx------ 2 alice alice 4096 Oct 10 02:46 .
+drwx------ 4 alice alice 4096 Oct 10 02:46 ..
+-rw------- 1 alice alice  566 Oct 10 02:46 authorized_keys
+-rw------- 1 alice alice 2602 Oct 10 02:46 id_rsa
+-rw-r--r-- 1 alice alice  566 Oct 10 02:46 id_rsa.pub
+===== END =====
+===== START =====
+--- 1) SSH status ---
+● ssh.service - OpenBSD Secure Shell server
+     Loaded: loaded (/usr/lib/systemd/system/ssh.service; enabled; preset: enabled)
+     Active: active (running) since Sat 2026-10-10 02:26:09 EDT; 20min ago
+ Invocation: 8b0a75e643bf47cda9bb9eb99b5388e6
+       Docs: man:sshd(8)
+--- 2) Edit sshd_config ---
+Port 2222
+PermitRootLogin no
+PasswordAuthentication no
+AllowUsers alice
+--- 3) Restart SSH ---
+LISTEN 0      128          0.0.0.0:2222      0.0.0.0:*    users:(("sshd",pid=2235,fd=6))                                                       
+LISTEN 0      128             [::]:2222         [::]:*    users:(("sshd",pid=2235,fd=7))                                                       
+--- 4) Deny 192.168.1.50 ---
+# /etc/hosts.deny: list of hosts that are _not_ allowed to access the system.
+#                  See the manual pages hosts_access(5) and hosts_options(5).
+#
+# Example:    ALL: some.host.name, .some.domain
+#             ALL EXCEPT in.fingerd: other.host.name, .other.domain
+#
+# If you're going to protect the portmapper use the name "rpcbind" for the
+# daemon name. See rpcbind(8) and rpc.mountd(8) for further information.
+#
+# The PARANOID wildcard matches any host whose name does not match its
+# address.
+#
+# You may wish to enable this to ensure any programs that don't
+# validate looked up hostnames still leave understandable logs. In past
+# versions of Debian this has been the default.
+# ALL: PARANOID
+
+sshd: 192.168.1.50
+--- 5) Allow 192.168.1.0/24 ---
+# /etc/hosts.allow: list of hosts that are allowed to access the system.
+#                   See the manual pages hosts_access(5) and hosts_options(5).
+#
+# Example:    ALL: LOCAL @some_netgroup
+#             ALL: .foobar.edu EXCEPT terminalserver.foobar.edu
+#
+# If you're going to protect the portmapper use the name "rpcbind" for the
+# daemon name. See rpcbind(8) and rpc.mountd(8) for further information.
+#
+
+sshd: 192.168.1.0/24
+--- 6) Generate key for alice ---
+--- .ssh contents ---
+total 20
+drwx------ 2 alice alice 4096 Oct 10 02:46 .
+drwx------ 4 alice alice 4096 Oct 10 02:46 ..
+-rw------- 1 alice alice  566 Oct 10 02:46 authorized_keys
+-rw------- 1 alice alice 2602 Oct 10 02:46 id_rsa
+-rw-r--r-- 1 alice alice  566 Oct 10 02:46 id_rsa.pub
+===== END =====
+
+===== SSH TEST RESULT =====
+Command: ssh -p 2222 alice@localhost
+Result: SUCCESS - logged in without password
